@@ -22,9 +22,8 @@ jobs:
           key:      ${{ secrets.EC2_KEY }}
           script: |
             # 예시: 원격 서버 프로젝트 경로로 이동 후 최신 코드 다운로드 & 서비스 재시작
-            cd /home/ec2-user/pg
-            # git pull
-            touch hello_CD.txt
-            #pip install -r requirements.txt
+            cd ~/playground
+            git pull
             # 서비스 실행/재시작 명령어
+            #pip install -r requirements.txt
             # ex) sudo systemctl restart myapp
