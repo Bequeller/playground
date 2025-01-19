@@ -1,0 +1,30 @@
+name: Python CD to EC2
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host:     ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key:      ${{ secrets.EC2_KEY }}
+          script: |
+            # 예시: 원격 서버 프로젝트 경로로 이동 후 최신 코드 다운로드 & 서비스 재시작
+            cd /home/ec2-user/pg
+            # git pull
+            touch hello_CD.txt
+            #pip install -r requirements.txt
+            # 서비스 실행/재시작 명령어
+            # ex) sudo systemctl restart myapp
