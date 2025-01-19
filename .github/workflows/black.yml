@@ -1,4 +1,4 @@
-name: == TEST ==
+name: == FORMAT CODE ==
 
 on: [push]
 
@@ -19,8 +19,8 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest
+        pip install black
         
-    - name: == TEST ==
+    - name: == FORMAT CODE ==
       run: |
-        pytest
+        black .

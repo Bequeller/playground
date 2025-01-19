@@ -2,7 +2,7 @@
 pytest 테스트 코드
 """
 
-from print import hello_world
+from helloworld import hello_world
 
 
 def test_hello_world():

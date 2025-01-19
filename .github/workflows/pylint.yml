@@ -1,4 +1,4 @@
-name: Pylint
+name: == LINT ==
 
 on: [push]
 
@@ -21,6 +21,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install pylint
         
-    - name: Analysing the code with pylint
+    - name: == LINT ==
       run: |
         pylint $(git ls-files '*.py')
